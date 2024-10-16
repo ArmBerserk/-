@@ -55,6 +55,21 @@ uwsgi_params - если нужен (сравнить)
 
 nginx.conf - сравнить
 
+
+По итогу для миграции перенес:
+
+/sites-available
+/sites-enabled
+/snippets
+/ssl 
+dhparam
+dhparam.pem
+fastcgi.conf
+mime.types
+proxy_params
+scgi_params
+uwsgi_params
+
 Для сравнения использем 
 
 diff /etc/nginx/fastcgi.conf /etc/angie/fastcgi.conf
@@ -69,6 +84,31 @@ grep -rn '.nginx' /etc/angie
 Что бы заменить все можно использовать команду 
 
 find /etc/angie -type f -name '*.conf' -exec sed --follow-symlinks -i 's|/nginx|/angie|g' {} \;
+
+
+В angie.conf из nginx.conf перенес: 
+
+user  www-data;
+
+proxy_cache_valid 1m;
+proxy_cache_key $scheme$host$request_uri;
+proxy_cache_path /var/www/cache levels=1:2 keys_zone=one:10m inactive=48h max_size=800m;
+
+
+access_log  /var/log/angie/access.log  main;
+error_log /var/log/angie/error.log;
+
+gzip  on;
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/css application/json application/javascript text/xml application/xml application/xml+rss text/ja>
+
+
+include /etc/angie/conf.d/*.conf;
+include /etc/angie/sites-enabled/*;
 
 
 Далее идем в cd /etc/angie/sites-enabled 
@@ -99,6 +139,12 @@ ll - проверяем
 Тестирование конфигурации
 
 sudo angie -t
+
+По результатам теста получил 
+
+root@ad-ag-zbx-01:/etc/angie# angie -t
+angie: the configuration file /etc/angie/angie.conf syntax is ok
+angie: configuration file /etc/angie/angie.conf test is successful
 
 
 Переключение на Angie
