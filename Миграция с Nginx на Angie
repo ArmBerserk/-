@@ -164,6 +164,34 @@ sudo systemctl enable angie
 systemctl mask nginx - замаскирует nginx и обезапасит от случайного запуска 
 
 
+root@ad-ag-zbx-01:/etc/angie# systemctl status angie
+● angie.service - Angie - high performance web server
+     Loaded: loaded (/usr/lib/systemd/system/angie.service; enabled; preset: enabled)
+     Active: active (running) since Wed 2024-10-16 13:37:09 UTC; 40min ago
+       Docs: https://angie.software/en/
+    Process: 2253 ExecStart=/usr/sbin/angie -c /etc/angie/angie.conf (code=exited, status=0/SUCCESS)
+   Main PID: 2257 (angie)
+      Tasks: 4 (limit: 9445)
+     Memory: 58.9M (peak: 59.7M)
+        CPU: 208ms
+     CGroup: /system.slice/angie.service
+             ├─2257 "angie: master process v1.7.0 #1 [/usr/sbin/angie -c /etc/angie/angie.conf]"
+             ├─2258 "angie: worker process #1"
+             ├─2259 "angie: worker process #1"
+             └─2260 "angie: cache manager process #1"
+
+Oct 16 13:37:09 ad-ag-zbx-01 systemd[1]: Starting angie.service - Angie - high performance web server...
+Oct 16 13:37:09 ad-ag-zbx-01 systemd[1]: Started angie.service - Angie - high performance web server.
+
+
+root@ad-ag-zbx-01:/etc/angie# systemctl status nginx
+○ nginx.service - A high performance web server and a reverse proxy server
+     Loaded: loaded (/usr/lib/systemd/system/nginx.service; disabled; preset: enabled)
+     Active: inactive (dead)
+       Docs: man:nginx(8)
+
+
+
 --------------------------------------------------------------------------------------------------------
 
 Миграциā docker-контейнеров
