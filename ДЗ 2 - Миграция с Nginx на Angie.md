@@ -168,6 +168,7 @@ sudo systemctl disable nginx
 sudo systemctl enable angie
 ```
 Проверяем. В моем случае Zabbix (http://zabbix6.lan/), который был ранее установлен и работал на nginx запустился без проблем. 
+![Screenshot_2](https://github.com/user-attachments/assets/a90a1121-a52a-4845-b357-0c3dcc054494)
 
 ```
 systemctl mask nginx - замаскирует nginx и обезапасит от случайного запуска 
