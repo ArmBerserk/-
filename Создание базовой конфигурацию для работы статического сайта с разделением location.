@@ -24,7 +24,7 @@ sudo unzip static_site-252831-96c1e2.zip -d /var/www/static-site
 sudo chown -R angie:angie /var/www/
 
 --------------------------------------------------------------------------------------------------------
-В папке /etc/angie/http.d создадим файл static-site.conf следующего содержания.
+В папке /etc/angie/http.d создадим файл static-site.conf 
 nano /etc/angie/http.d/static-site.conf
 
 И вносим следующие параметры:
