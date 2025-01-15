@@ -3,7 +3,21 @@
 
 ![image](https://github.com/user-attachments/assets/5cb57591-7c54-4bb7-9cc7-69a3e7d04e06)
 
-
+# Все работы выполнены в Ubuntu 24.04
+--------------------------------------------------------------------------------------------------------
+```
+root@ad-ag-zbx-01:/etc/angie/http.d# lsb_release -a
+No LSB modules are available.
+Distributor ID: Ubuntu
+Description:    Ubuntu 24.04 LTS
+Release:        24.04
+Codename:       noble
+root@ad-ag-zbx-01:/etc/angie/http.d#
+```
+```
+root@ad-ag-zbx-01:/etc/angie/http.d# angie -v
+Angie version: Angie/1.7.0
+```
 # Установка Zabbix 
 
 Установку Zabbix выполняем по [инструкции] (https://www.zabbix.com/download?zabbix=7.2&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=pgsql&ws=nginx)
