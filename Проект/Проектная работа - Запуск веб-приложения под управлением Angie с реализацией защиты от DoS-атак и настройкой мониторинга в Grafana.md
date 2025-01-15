@@ -924,7 +924,7 @@ apt install grafana
 ### В поле Import via dashboard JSON model вводим содержимое ранее скаченого файла JSON
 ![image](https://github.com/user-attachments/assets/e6ec7680-d967-48d8-9238-a1b995197135)
 
-### Для Node Exporter делаем то же самое файл JSON скчиваем отсюда https://grafana.com/grafana/dashboards/1860-node-exporter-full/
+### Для Node Exporter делаем то же самое файл JSON, скчиваем здесь https://grafana.com/grafana/dashboards/1860-node-exporter-full/
 
 ### В итоге получаем рабочие dachboards по мниторингу angie и ресурсов сервера
 
